@@ -22,6 +22,7 @@ print(df.info())
 df_price_bedrooms = df.groupby("bedrooms")["price"].mean()
 
 # format y-axis as currency
+print("Average House Price by Number of Bedrooms:")
 print(df_price_bedrooms.apply(lambda x: f"${x:,.2f}"))
 
 # Plot average house price by number of bedrooms
@@ -48,6 +49,11 @@ df['area_category'] = pd.cut(df['area'],
 
 # Group by area category and calculate average price
 grouped_area = df.groupby('area_category')['price'].mean().reset_index()
+
+df_area = grouped_area.set_index('area_category').sort_index()
+
+print("Average House Price by Area Category:")
+print(df_area.apply(lambda x: f"${x['price']:,.2f}", axis=1))
 
 # Plot average house price by area category
 grouped_area.plot(kind="bar",
