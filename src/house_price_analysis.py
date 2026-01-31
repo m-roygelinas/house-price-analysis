@@ -48,3 +48,14 @@ df['area_category'] = pd.cut(df['area'],
 
 # Group by area category and calculate average price
 grouped_area = df.groupby('area_category')['price'].mean().reset_index()
+
+# Plot average house price by area category
+grouped_area.plot(kind="bar",
+        x="area_category",
+        y="price",
+        title="House Price by Area")
+plt.xlabel("Area Category")
+plt.ylabel("Price ($M)")
+plt.xticks(rotation=0)
+plt.tight_layout()
+plt.show()
