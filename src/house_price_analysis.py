@@ -20,3 +20,6 @@ print(df.info())
 
 # Group by number of bedrooms and calculate average price
 df_price_bedrooms = df.groupby("bedrooms")["price"].mean()
+
+# format y-axis as currency
+print(df_price_bedrooms.apply(lambda x: f"${x:,.2f}"))
