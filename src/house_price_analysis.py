@@ -36,3 +36,15 @@ plt.grid(axis='y',
          alpha=0.7)
 plt.tight_layout()
 plt.show()
+
+# -----------------------------------------------------------------------------
+# Analyze house prices by area
+# -----------------------------------------------------------------------------
+
+# Create area bins/ranges
+df['area_category'] = pd.cut(df['area'], 
+                             bins=[0, 5000, 7000, 11000, float('inf')], 
+                             labels=['Small', 'Medium', 'Large', 'Very Large'])
+
+# Group by area category and calculate average price
+grouped_area = df.groupby('area_category')['price'].mean().reset_index()
