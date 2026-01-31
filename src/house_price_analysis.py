@@ -23,3 +23,16 @@ df_price_bedrooms = df.groupby("bedrooms")["price"].mean()
 
 # format y-axis as currency
 print(df_price_bedrooms.apply(lambda x: f"${x:,.2f}"))
+
+# Plot average house price by number of bedrooms
+df_price_bedrooms.plot(kind="bar", 
+                       title="Average House Price by Number of Bedrooms")
+plt.xlabel("Number of Bedrooms")
+plt.ylabel("Average Price ($M)")
+plt.yticks(np.arange(0, 6000001, 500000))
+plt.xticks(rotation=0)
+plt.grid(axis='y',
+         linestyle='--',
+         alpha=0.7)
+plt.tight_layout()
+plt.show()
