@@ -59,3 +59,10 @@ plt.ylabel("Price ($M)")
 plt.xticks(rotation=0)
 plt.tight_layout()
 plt.show()
+
+# -----------------------------------------------------------------------------
+# Analyze house prices by furnishing status
+# -----------------------------------------------------------------------------
+
+# Group by furnishing status and calculate average price
+df_furnished = df.groupby("furnishingstatus")["price"].mean()
