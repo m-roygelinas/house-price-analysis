@@ -32,6 +32,8 @@ grid_style = {"color": "lightgray",
               "alpha": 0.7,
               "axis": "y"}
 
+print(f"Number of duplicate rows: {df.duplicated().sum()}")
+
 #------------------------------------------------------------------------------
 # Analyze house prices by number of bedrooms
 # -----------------------------------------------------------------------------
