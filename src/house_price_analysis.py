@@ -12,7 +12,14 @@ df = pd.read_csv(data_path)
 # -----------------------------------------------------------------------------
 
 #print(df.head())
-print(df.info())
+#print(df.info())
+#print(df.describe())
+#print(f"Number of duplicate rows: {df.duplicated().sum()}")
+
+print(f"Median house price: ${df['price'].median():,.2f}")
+print(f"Average house price: ${df['price'].mean():,.2f}")
+print(f"Minimum house price: ${df['price'].min():,.2f}")
+print(f"Maximum house price: ${df['price'].max():,.2f}")
 
 # -----------------------------------------------------------------------------
 # Styles
@@ -31,8 +38,6 @@ grid_style = {"color": "lightgray",
               "linewidth": 0.7,
               "alpha": 0.7,
               "axis": "y"}
-
-print(f"Number of duplicate rows: {df.duplicated().sum()}")
 
 #------------------------------------------------------------------------------
 # Analyze house prices by number of bedrooms
