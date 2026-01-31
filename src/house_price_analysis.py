@@ -26,6 +26,11 @@ title_font = {"fontsize": 15,
               "family": "sans-serif",
               "fontweight": "bold",
               "color": "teal"}
+grid_style = {"color": "lightgray",
+              "linestyle": "--",
+              "linewidth": 0.7,
+              "alpha": 0.7,
+              "axis": "y"}
 
 #------------------------------------------------------------------------------
 # Analyze house prices by number of bedrooms
@@ -42,11 +47,9 @@ df_price_bedrooms.plot(kind="bar")
 plt.title("Average House Price by Number of Bedrooms", **title_font)
 plt.xlabel("Number of Bedrooms", **label_font)
 plt.ylabel("Average Price ($M)", **label_font)
-plt.yticks(np.arange(0, 6000001, 500000))
 plt.xticks(rotation=0)
-plt.grid(axis='y',
-         linestyle='--',
-         alpha=0.7)
+plt.yticks(np.arange(0, 6000001, 500000))
+plt.grid(**grid_style)
 plt.tight_layout()
 plt.show()
 
