@@ -66,3 +66,6 @@ plt.show()
 
 # Group by furnishing status and calculate average price
 df_furnished = df.groupby("furnishingstatus")["price"].mean()
+
+# format as currency
+print(df_furnished.apply(lambda x: f"${x:,.2f}"))
