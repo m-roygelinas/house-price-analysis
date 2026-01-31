@@ -69,3 +69,12 @@ df_furnished = df.groupby("furnishingstatus")["price"].mean()
 
 # format as currency
 print(df_furnished.apply(lambda x: f"${x:,.2f}"))
+
+# Plot average house price by furnishing status
+df_furnished.plot(kind="bar",
+                  title="Average House Price by Furnishing Status")
+plt.xlabel("Furnishing Status")
+plt.ylabel("Average Price ($M)")
+plt.xticks(rotation=0)
+plt.tight_layout()
+plt.show()
