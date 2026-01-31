@@ -14,6 +14,19 @@ df = pd.read_csv(data_path)
 #print(df.head())
 print(df.info())
 
+# -----------------------------------------------------------------------------
+# Styles
+# -----------------------------------------------------------------------------
+
+label_font = {"fontsize": 15,
+              "family": "sans-serif",
+              "fontweight": "light",
+              "color": "teal"}
+title_font = {"fontsize": 15,
+              "family": "sans-serif",
+              "fontweight": "bold",
+              "color": "teal"}
+
 #------------------------------------------------------------------------------
 # Analyze house prices by number of bedrooms
 # -----------------------------------------------------------------------------
@@ -21,15 +34,14 @@ print(df.info())
 # Group by number of bedrooms and calculate average price
 df_price_bedrooms = df.groupby("bedrooms")["price"].mean()
 
-# format y-axis as currency
 print("Average House Price by Number of Bedrooms:")
-print(df_price_bedrooms.apply(lambda x: f"${x:,.2f}"))
+print(df_price_bedrooms.apply(lambda x: f"${x:,.2f}")) # format as currency
 
 # Plot average house price by number of bedrooms
-df_price_bedrooms.plot(kind="bar", 
-                       title="Average House Price by Number of Bedrooms")
-plt.xlabel("Number of Bedrooms")
-plt.ylabel("Average Price ($M)")
+df_price_bedrooms.plot(kind="bar")
+plt.title("Average House Price by Number of Bedrooms", **title_font)
+plt.xlabel("Number of Bedrooms", **label_font)
+plt.ylabel("Average Price ($M)", **label_font)
 plt.yticks(np.arange(0, 6000001, 500000))
 plt.xticks(rotation=0)
 plt.grid(axis='y',
@@ -50,6 +62,7 @@ df['area_category'] = pd.cut(df['area'],
 # Group by area category and calculate average price
 grouped_area = df.groupby('area_category')['price'].mean().reset_index()
 
+# set index and sort for better visualization
 df_area = grouped_area.set_index('area_category').sort_index()
 
 print("Average House Price by Area Category:")
@@ -58,10 +71,10 @@ print(df_area.apply(lambda x: f"${x['price']:,.2f}", axis=1))
 # Plot average house price by area category
 grouped_area.plot(kind="bar",
         x="area_category",
-        y="price",
-        title="House Price by Area")
-plt.xlabel("Area Category")
-plt.ylabel("Price ($M)")
+        y="price")
+plt.title("House Price by Area", **title_font)
+plt.xlabel("Area Category", **label_font)
+plt.ylabel("Price ($M)", **label_font)
 plt.xticks(rotation=0)
 plt.yticks(np.arange(0, 7000001, 500000))
 plt.tight_layout()
@@ -77,14 +90,14 @@ df_furnished = df.groupby("furnishingstatus")["price"].mean()
 # Sort values for better visualization
 df_furnished = df_furnished.sort_values(ascending=True)
 
-# format as currency
-print(df_furnished.apply(lambda x: f"${x:,.2f}"))
+print("Average House Price by Furnishing Status:")
+print(df_furnished.apply(lambda x: f"${x:,.2f}")) # format as currency
 
 # Plot average house price by furnishing status
-df_furnished.plot(kind="bar",
-                  title="Average House Price by Furnishing Status")
-plt.xlabel("Furnishing Status")
-plt.ylabel("Average Price ($M)")
+df_furnished.plot(kind="bar")
+plt.title("Average House Price by Furnishing Status", **title_font)
+plt.xlabel("Furnishing Status", **label_font)
+plt.ylabel("Average Price ($M)", **label_font)
 plt.xticks(rotation=0)
 plt.yticks(np.arange(0, 6000001, 500000))
 plt.tight_layout()
