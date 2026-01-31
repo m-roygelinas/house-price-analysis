@@ -57,6 +57,7 @@ grouped_area.plot(kind="bar",
 plt.xlabel("Area Category")
 plt.ylabel("Price ($M)")
 plt.xticks(rotation=0)
+plt.yticks(np.arange(0, 7000001, 500000))
 plt.tight_layout()
 plt.show()
 
@@ -79,5 +80,6 @@ df_furnished.plot(kind="bar",
 plt.xlabel("Furnishing Status")
 plt.ylabel("Average Price ($M)")
 plt.xticks(rotation=0)
+plt.yticks(np.arange(0, 6000001, 500000))
 plt.tight_layout()
 plt.show()
