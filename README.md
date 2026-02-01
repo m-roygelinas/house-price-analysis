@@ -20,10 +20,10 @@ bedrooms
 ### Average House Price by Area Category:
 ```
 area_category
-Small         $3,897,029.13
-Medium        $5,643,769.60
-Large         $6,317,080.00
-Very Large    $6,667,181.82
+Small         $3,536,093.75
+Medium        $4,102,657.89
+Large         $5,289,105.26
+Very Large    $6,219,003.26
 ```
 
 ### Average House Price by Furnishing Status:
