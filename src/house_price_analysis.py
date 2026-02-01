@@ -64,24 +64,22 @@ plt.show()
 # Analyze house prices by area
 # -----------------------------------------------------------------------------
 
-# Create area bins/ranges
-df['area_category'] = pd.cut(df['area'], 
-                             bins=[0, 5000, 7000, 11000, float('inf')], 
-                             labels=['Small', 'Medium', 'Large', 'Very Large'])
+# Create area categories using quantiles
+df["area_category"] = pd.qcut(df['area'], q=4, labels=['Small', 'Medium', 'Large', 'Very Large'])
 
 # Group by area category and calculate average price
 grouped_area = df.groupby('area_category')['price'].mean().reset_index()
 
-# set index and sort for better visualization
+# Sort area categories for better visualization
 df_area = grouped_area.set_index('area_category').sort_index()
 
 print("Average House Price by Area Category:")
 print(df_area.apply(lambda x: f"${x['price']:,.2f}", axis=1))
 
-# Plot average house price by area category
+# Plot average house price by area category using quantiles
 grouped_area.plot(kind="bar",
-        x="area_category",
-        y="price")
+                  x="area_category",
+                  y="price")
 plt.title("House Price by Area", **title_font)
 plt.xlabel("Area Category", **label_font)
 plt.ylabel("Price ($M)", **label_font)
