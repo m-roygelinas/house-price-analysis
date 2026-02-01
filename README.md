@@ -35,7 +35,7 @@ furnished         $5,495,696.00
 ```
 
 ## Conclusion
-The analysis confirms that **area and furnishing status are strong positive predictors of house price**. Houses with larger areas command significantly higher prices (ranging from $3.9M for small to $6.7M for very large), and furnished properties are 37% more expensive than unfurnished ones on average.
+The analysis confirms that **area and furnishing status are strong positive predictors of house price**. Houses with larger areas command significantly higher prices (ranging from $3.5M for small to $6.2M for very large), and furnished properties are 37% more expensive than unfurnished ones on average.
 
 However, the relationship with **number of bedrooms is non-linear**. While prices generally increase from 1-5 bedrooms ($2.7M → $5.8M), there is a notable drop at 6 bedrooms ($4.8M), suggesting that bedroom count alone is not a reliable price predictor. This anomaly may be due to smaller sample size, different architectural designs, or property locations.
 
