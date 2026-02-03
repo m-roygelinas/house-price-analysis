@@ -1,7 +1,7 @@
 # house-price
 Analysis of the prices of houses in a dataset
 
-Visualization plots were generated based on prices analysis across three dimensions: number of bedrooms, area and furnishing status.
+Visualizations were generated based on prices analysis across three dimensions: number of bedrooms, area and furnishing status.
 
 ## Hypothesis
 The analysis examines whether the number of bedrooms, house size (area), and furnishing status are factors influencing house prices. We hypothesize that area and furnishing status have strong positive correlations with price, while the relationship with bedrooms is more complex and may be influenced by other factors such as property location or construction type.
@@ -49,7 +49,7 @@ https://www.agentsfordata.com/csv/sample
 - numpy
 - matplotlib
 
-## Plots
+## Bar charts
 ![Average house price by number of bedrooms](img/average_house_price_by_number_of_bedrooms.png)
 
 ![Average house price by area](img/house_price_by_area.png)
